@@ -196,6 +196,10 @@ void setup() {
   Serial.printf("Connected, IP address: ");
   Serial.println(WiFi.localIP());
   
+  //-----------------------------------------------------------
+  //時間同期
+  configTime(JST, 0, "ntp.nict.jp", "ntp.jst.mfeed.ad.jp");
+  
 //---------------------------------
   // ★変更：WiFi接続完了の表示（中央揃えでSSIDとIPを表示）
   u8g2.firstPage();
@@ -222,14 +226,11 @@ void setup() {
   } while (u8g2.nextPage());
   delay(3000);
   
-  //-----------------------------------------------------------
-  //時間同期
-  configTime(JST, 0, "ntp.nict.jp", "ntp.jst.mfeed.ad.jp");
   
   //-----------------------------------------------------------
   //消去
   cleardisplay();
-  delay(1000);
+  delay(500);
 
   //----------------------------------------------------------------------
   //センサー開始
